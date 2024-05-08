@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="author" content="Jadyn Reilly" />
+  <title>Assignment 1</title>
+  <link rel="stylesheet" type="text/css" media="screen, projection, print"
+    href="scripts/slidy.css" /> <!-- http://www.w3.org/Talks/Tools/Slidy2/styles/slidy.css -->
+  <script src="scripts/slidy.js"
+    charset="utf-8" type="text/javascript"></script> <!-- http://www.w3.org/Talks/Tools/Slidy2/scripts/slidy.js-->
+  <script src="scripts/jquery-3.3.1.min.js"
+    charset="utf-8" type="text/javascript"></script> <!-- https://code.jquery.com/jquery-3.3.1.min.js -->
+  <script type="text/javascript" src="scripts/qrcode.js"></script>
+</head>
+
+<style>
+
+  /* two-colomn layout */
+  * {
+    box-sizing: border-box;
+  }
+
+  /* Create two equal columns that floats next to each other */
+  .column {
+    float: left;
+    width: 50%;
+    padding: 10px;
+    height: 300px; /* Should be removed. Only for demonstration */
+  }
+
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  .right-side-image {
+    float: right;
+    width: 300px;
+    border: 0px solid #004480;
+    padding: 10px;
+  }
+
+  /* global properties to apply to all images */
+  .img {
+    float: left;
+  }
+
+  .author {
+  color:rgb(255, 85, 170);
+}
+
+  /* qrcode generator image size */
+  #qrcode {
+    width:160px;
+    height:160px;
+    margin-top:15px;
+  }
+
+  /* email link */
+  a.email:link {color:#1d9a83;}
+  a.email:hover {color:rgb(255, 59, 157); background:#ffddf9;}
+
+</style>
+
+<body>
+<div class="slide titlepage">
+  <h1 class="title">CSC 543 Assignment 1<br><font color = "#000080"></font></h1>
+  <p class="author">Jadyn Reilly</p>
+  <p class="date">Computer Science Department <br><font color = "#8080FF" style="text-shadow:-1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;">Southern Connecticut State University</font></p>
+  <button id="view-fullscreen">Click For Full Screen View</button>
+    <br>
+    <br>
+            <img src="https://www.csi.cuny.edu/sites/default/files/styles/inner_page_slider/public/2022-02/computer_science_slider_colored_code.jpg?itok=D5hq4KTx" alt="coding">
+            
+  <script type="text/javascript">
+    (function () {
+        var viewFullScreen = document.getElementById("view-fullscreen");
+        if (viewFullScreen) {
+            viewFullScreen.addEventListener("click", function () {
+                var docElm = document.documentElement;
+                if (docElm.requestFullscreen) {
+                    docElm.requestFullscreen();
+                }
+                else if (docElm.msRequestFullscreen) {
+                    docElm = document.body; //overwrite the element (for IE)
+                    docElm.msRequestFullscreen();
+                }
+                else if (docElm.mozRequestFullScreen) {
+                    docElm.mozRequestFullScreen();
+                }
+                else if (docElm.webkitRequestFullScreen) {
+                    docElm.webkitRequestFullScreen();
+                }
+            }, false);
+        }
+
+        var cancelFullScreen = document.getElementById("cancel-fullscreen");
+        if (cancelFullScreen) {
+            cancelFullScreen.addEventListener("click", function () {
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                }
+                else if (document.msExitFullscreen) {
+                    document.msExitFullscreen();
+                }
+                else if (document.mozCancelFullScreen) {
+                    document.mozCancelFullScreen();
+                }
+                else if (document.webkitCancelFullScreen) {
+                    document.webkitCancelFullScreen();
+                }
+            }, false);
+        }
+
+        var fullscreenState = document.getElementById("fullscreen-state");
+        if (fullscreenState) {
+            document.addEventListener("fullscreenchange", function () {
+                fullscreenState.innerHTML = (document.fullscreenElement)? "" : "not ";
+            }, false);
+
+            document.addEventListener("msfullscreenchange", function () {
+                fullscreenState.innerHTML = (document.msFullscreenElement)? "" : "not ";
+            }, false);
+
+            document.addEventListener("mozfullscreenchange", function () {
+                fullscreenState.innerHTML = (document.mozFullScreen)? "" : "not ";
+            }, false);
+
+            document.addEventListener("webkitfullscreenchange", function () {
+                fullscreenState.innerHTML = (document.webkitIsFullScreen)? "" : "not ";
+            }, false);
+        }
+
+    })();
+    </script>
+    </div>
+
+
+<div class="section slide level1" id="this" style="text-align:center">
+  <br>
+  <h1 style="color: rgb(255, 85, 170);">My experience with Web Programming</h1>
+  <ul class="incremental">
+    <br>
+<li>My prior experience with web programming is tied to this course that I took two semesters ago. Unfortunately, unforseen circumstances led
+  to a leave of absence, preventing me from finishing the class. Throughout my time in the course, I had the opportunity to work with
+  HTML, Javascript, and CSS using Visual Studio Code. 
+</li>
+<br>
+<br>
+<li>Currently, I am focused on refreshing what I had previously learned. As I continue to do this assignment and 
+  research, I am finding it easier to remember little details I had previously forgotten.
+</li>
+<br>
+<br>
+<li>For this course, I aim to leverage the foundational knowledge I obtained during that period to complete my work. Although my
+  exposure to web programming is mostly limited, I am excited about delving deeper into programming and expanding my skills.</li>
+  </ul>
+</div>
+
+
+
+<div class="section slide level1" id="this"style="text-align: center;">
+  <br>
+  <h1 style="color: rgb(255, 85, 170);">What Tools Will I Use for CSC 543 Coursework?</h1>
+<h6>(code editors, frameworks data sources, file transfer utilities, web browsers, hardware, networks, and softwares)</h6>
+  <ul class="incremental">
+
+<li> Since my knowledge in Web Programming is limited, right now I am using things I am familiar with and have used in the past. 
+  I am looking forward to learning about other tools that I can implement into my work throughout the semester.  
+</li>
+
+<br>
+
+<li>Code Editor: Visual Studio Code</li>
+
+<li>Web Browser: Google Chrome</li>
+
+<li>File Transfer: FileZilla</li>
+
+<li>Version Control: GitHub</li>
+
+<li>Hardware: Macbook</li>
+
+  </ul>
+</div>
+
+
+
+<div class="section slide level1" id="this"style="text-align: center;">
+  <br>
+  <h1 style="color: rgb(255, 85, 170);">Web Development Frameworks I am interested in Exploring Further</h1>
+  <ul class="incremental">
+
+<li> Since I am new to web programming, my exposure to different frameworks is currently limited but steadily developing. In a previous class,
+  CSC540, I had the opportunity to create a web application focused on inventory management for employees.
+  My group and I incorporated Bootstrap into the project, so I would be interested in expanding my knowledge on that. That was one of
+  my first classes in this program so it was definitely challenging. After some further research though, 
+  I would also be interested in learning React and Django. I believe this would help me in creating more advanced
+  web development projects.
+</li>
+  </ul>
+</div>
+
+
+<div class="section slide level1" id="this"style="text-align: center;">
+  <br>
+  <h1 style="color: rgb(255, 85, 170);">Personal Interests Related to Web Programming</h1>
+  <ul class="incremental">
+
+<li> At the moment, I do not have specific ongoing projects related to web programming. I am eager to explore all of the various aspects 
+  of web programming, including front-end and back-end development. This will help me in building a solid foundation for future projects
+  and assignments. So far, I am enjoying all of the technical aspects of completing this assignment and find it fascinating to witness code come to life.
+   I am excited for this class and learning more about web programming. I am hoping the knowledge I gain
+   in this class will not only align with my personal interests but also contribute to shaping my career path.
+
+</li>
+  </ul>
+</div>
+
+
+
+
+<div class="section slide level1" id="this"style="text-align: center;">
+  <br>
+  <h1 style="color: rgb(255, 85, 170);">Resources I would Reccomend</h1>
+  <ul class="incremental">
+<br>
+<li> There are a few resources I would reccomend to anyone starting out in learning this field. To start,
+  <a href="https://www.codecademy.com/" target="_blank">CodeAcademy</a> has helped me tremendously in learning and understanding all of the various aspects of HTML. This interactive
+  learning platform allows you to write and execute code directly in the browser, offering coverage of
+  essential concepts. It is also beginner friendly making it useful for anyone. There are many other courses I will be looking into once I finish with HTML!
+  Another valuable resource is <a href="https://www.w3schools.com/" target="_blank">W3 Schools</a> because it covers a wide range of web development languages and technologies. It provides
+  detailed information on syntax to use, explanations, and examples. 
+  </li>
+  <br>
+  <li>I would also reccomend <a href="https://www.youtube.com/" target="_blank">Youtube</a> for tutorials as well information available through <a href="https://www.google.com/" target="_blank">Google</a>.</li>  
+
+  </ul>
+</div>
+
+
+<div class="section slide level1" id="this"style="text-align: center;">
+  <br>
+  <h1 style="color: rgb(255, 85, 170);">Beyond CSC543</h1>
+  <ul class="incremental">
+
+<li> Beyond CSC543, I aim to take the skills I acquire in this class and implement them into future courses.
+  I also look to build upon the foundational knowledge I will gain and use it in my real life once
+  I am done with school.
+  </li>
+  
+  </ul>
+</div>
+
+
+<div class="section slide level1" id="questions">
+  <h1 style="color: rgb(255, 85, 170);">Resources</h1>
+  <ul class="incremental">
+    <li>Learn to code - for free. Codecademy. (n.d.). https://www.codecademy.com/ </li>
+    <li>W3Schools online web tutorials. (n.d.). https://www.w3schools.com/</li>
+    <li>YouTube. (n.d.). https://www.youtube.com/</li>
+    <li>Google. (n.d.). https://www.google.com/</li>
+  </ul>
+  <br><br>
+
+  <a class="email" href="mailto:reillyj18@southernct.edu">
+  <ul style=
+    "text-align: right;
+    font-family: Verdana,sans-serif;
+    text-shadow:-1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;">
+    reillyj18@southernct.edu</a><br>
+    <img class="right-side-image" src="https://myiee.org/storage/krMKrGXXFAxdiTJKE2wl8Dw1JSGqu1vbeJVtsgb9.png"></ul>
+  </ul>
+</div>
+</body>
+</html>

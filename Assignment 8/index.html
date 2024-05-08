@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Style-Type" content="text/css">
+    <meta name="author" content="Jadyn Reilly">
+    <title>Assignment 8</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+    <style>
+
+      body {
+        background-color: rgb(255, 255, 255);
+
+      }
+
+      h1{
+        font-size: 30px;
+      }
+
+      .title {
+        color: rgb(131, 177, 255);
+        text-align: center;
+        margin-top: 15px;
+        width: 100%;
+        border: 2px solid rgb(139, 139, 139);
+        padding: 10px; 
+        padding-bottom: 1px;
+        display: inline-block;
+    
+        }
+      
+
+      .time {
+        color: rgb(50, 51, 100);
+      }
+
+      .options-container {
+        margin-top: 20px;
+        text-align: center;
+    
+      }
+
+      .option-button {
+        display: inline-block;
+        padding: 10px 35px;
+        margin: 10px;
+        margin-top: 10px;
+        text-decoration: none;
+        font-size: 20px;
+        background-color: rgb(50, 51, 100);
+        color: ghostwhite;
+        border-radius: 7px;
+        border: 1px solid transparent;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); 
+      
+      }
+
+      .option-button:hover {
+        background-color: rgb(243, 243, 243);
+        color: rgb(252, 94, 199);
+        
+      }
+
+      footer {
+        background-color: rgb(50, 51, 100);
+        color: ghostwhite;
+        padding: 20px;
+        text-align: right; 
+      }
+
+      footer p {
+        margin: 0;
+      }
+
+      .csv-container {
+        text-align: center;
+        height: auto;
+        font-size: small;
+
+      }
+
+      .csv-table {
+        color: rgb(50, 51, 100);
+        border-collapse: collapse;
+        width: 99%; 
+        text-align: center;
+        margin: 0 auto;
+      }
+
+      .csv-table th, .csv-table td {
+        border: 1px solid rgb(50, 51, 100);
+        padding: 8px;
+        text-align: center;
+      }
+
+      .csv-table tr:hover {
+        background-color: rgb(245, 152, 210); 
+      }
+
+      #csv-table td:nth-child(3),
+      #csv-table th:nth-child(3) {
+        width: 115px;
+
+      }
+
+      video {
+            max-width: 70%;
+            max-height: 70%;
+        }
+
+
+    </style>
+</head>
+<body>
+  <div class="title">
+    <h1>CSC543 - Assignment 8</h1>
+    <p class="time" id="datetime"></p>
+  </div>
+<br>
+  <script>
+
+    var now = new Date();
+    var monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+    var month = monthNames[now.getMonth()];
+    var day = now.getDate();
+    var year = now.getFullYear();
+    var time = now.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+    var dateString = month + " " + day + ", " + year + " at " + time;
+    document.getElementById("datetime").innerHTML = dateString;
+  
+  </script>
+  <br>
+<p style="text-align: center;color: rgb(39, 72, 132);">Click here to review feedback for my project as well as my responses:</p>
+  <div class="options-container">
+    <a href="responses.html" class="option-button">Responses To Feedback</a> 
+  </div> 
+  <hr>
+
+                  <!-- R1 -->
+
+
+  <h5 style="color: rgb(255, 131, 197); width: 80%; margin: 0 auto; text-align: center;">R1.Describe (verbally and visually) the average CMMI maturity level and NASA Technology Readiness Level of your Project 1 work based on feedback received in your discussion forum and indicate your assessment of your own Project.</h5>
+<br>
+<h6 style="color: rgb(69, 69, 69); width: 60%; margin: 0 auto; text-align: center;">For my analysis of the CMMI maturity level and NASA Technology Readiness Level of my Project 1 work, I gathered feedback from all reviewers and calculated the average scores for both metrics.</h6>
+<br><br>
+
+  <div style="display: flex; justify-content: space-around; max-width: 100%;">
+    <div style="display: flex; flex-direction: column; align-items: center; text-align: center; max-width: 43%;">
+      <div style="flex-grow: 1;">
+        <h5 style="color: rgb(39, 72, 132);">The Average CMMI Maturity Level of My Project 1:</h5>
+        <p>For my analysis of the CMMI Maturity Level of my Project 1 work, I compiled the CMMI Maturity Level scores provided
+          by each reviewer, which ranges from 0 to 5 on the CMMI scale. The calculated average CMMI rating for my project was 3.88. This outcome 
+          demonstrates a good level of maturity, considering the maximum maturity scale of 5. Reflecting on this, I'm content 
+          with the result. A lot of time and effort was invested into my project so I am pleased others found it to be at a mid to high level 
+          on the maturity scale. If I were to rate my project on the CMMI Maturity scale I would give it a 4, which means my project is data-driven and performance is managed well. [1]
+         </p>
+      </div>
+      <iframe src="cmmi.html" width="600" height="396"></iframe>
+    </div>
+
+    <div style="display: flex; flex-direction: column; align-items: center; text-align: center; max-width: 43%;">
+      <div style="flex-grow: 1;">
+        <h5 style="color: rgb(39, 72, 132);">The Average NASA Technology Readiness Level Of My Project 1:</h5>
+        <p>For my analysis of the NASA Technology Readiness Level of my Project 1 work, I compiled feedback from 
+          the same classmates who reviewed my project and calculated the average scores. I compiled the TRL levels provided by 
+          each reviewer, which ranges from 1 to 9 on the TRL scale. The calculated average TRL rating for my project was 5.5. This outcome 
+          indicates a moderate to high level of technology readiness, aligning well with the expectations and objectives 
+          of the project. If I were to rate my project on the TRL scale, I would give it a 6 which means my project is fully functional prototype, performs
+          well, managed well, and can be altered or improved. [2]
+        </p>
+      </div>
+      <iframe src="trl.html" width="600" height="396"></iframe>
+    </div>
+  </div>
+  
+ <hr> 
+
+                    <!-- R2 -->
+
+
+<h5 style="text-align: center; color: rgb(255, 131, 197);">R2: The Current US-CERT 3-2-1 Data Backup Status Of My CSC 543 Portfolio:</h5>
+
+<p style="margin: 0 auto; max-width: 91%; text-align: center;">The current US-CERT 3-2-1 data backup strategy states, "All computer users, from home users to professional 
+  information security officers, should back up the critical data they have on their desktops, laptops, servers, and even mobile devices 
+  to protect it from loss or corruption. Saving just one backup file may not be enough to safeguard
+  your information. To increase your chances of recovering lost or corrupted data, follow the 3-2-1
+  rule:
+  <br><br>
+  <ul style="margin: 0 auto; max-width: 75%; text-align: left;">1. Keep 3 copies of any important file: 1 primary and 2 backups.</ul>
+  <ul style="margin: 0 auto; max-width: 75%; text-align: left;">2. Keep the files on 2 different media types to protect against different types of hazards. </ul>
+  <ul style="margin: 0 auto; max-width: 75%; text-align: left;">3. Store 1 copy offsite (e.g., outside your home or business facility)." [3]</ul></p>
+<br>
+  <p style="margin: 0 auto; max-width: 95%; text-align: center;">The current backup status of my CSC 543 portfolio is effective, but there is definitely room for improvement. Currently, all files are 
+  automatically synced and stored within my 'CSC543 Labs' directory in Visual Studio Code. This directory serves as the primary location for my assignments 
+  and is synchronized within my documents directory on my internal hard drive.
+Additionally, backups are maintained on Cloud services including both Google Drive and my Southern Microsoft OneDrive account. This helps ensure remote accessibility 
+  and protection against potential data loss. In case anything were to happen with my computer, I can guarentee my portfolio can be easily recovered. However, to further enhance my backup strategy, I am considering the 
+  addition of a USB drive kept in a secure location for an extra layer of redundancy. While I haven't implemented this 
+  yet, it is something I am interested in exploring.</p>
+<br>
+  <div style="text-align: center;">
+    <img src="us321.png" alt="data back up strategy" style="max-width: 50%; display: block; margin: 0 auto;">
+  </div>
+<hr>
+
+                    <!-- R3 -->
+
+<h5 style="text-align: center; color: rgb(255, 131, 197);">R3: One Or More Paths To Optimizing My CSC 543 Portfolio, US-CERT 3-2-1 Data Backup status:</h5>
+<p style="margin: 0 auto; max-width: 75%; text-align: center;">To improve my CSC 543 portfolio's US-CERT 3-2-1 data backup status, I can implement additional redundancy measures such as 
+  different storage methods and storing backups offsite. Implementing version control systems like GitHub can further enhance my backup strategy
+  making it easier to track changes, modify files, and collaborate. Automated backups through GitHub [4] can help ensure data integrity and accessibility for my 
+  CSC 543 portfolio. Currently, Assignment 8 is not uploaded because it is incomplete, but I will commit it to GitHub as soon as I finish. It is also important to note that
+  I couldn't upload my entire Project 1 folder due to my React implementation deployed via Netlify which includes a nested repository. I'll address this by uploading it 
+  separately. All other aspects of Project 1 have been successfully uploaded as you can see in the photo below: </p>
+<br>
+  <div style="text-align: center;">
+    <img src="github.png" alt="data back up strategy" style="max-width: 55%; display: block; margin: 0 auto;">
+  </div>
+<hr>
+
+                 <!-- R4 -->
+
+<h5 style="text-align: center; color: rgb(255, 131, 197);">R4: The Current NIST CSF2 PR.DS Compliance (PR.DS-01, PR.DS-02, PR.DS-10, PR.DS-11) Of My CSC 543 Portfolio:</h5>
+<ul>
+  <li>
+    <p><strong>PR.DS-01: The confidentiality, integrity, and availability of data-at-rest are protected:</strong></p>
+    <p>- The confidentiality, integrity, and availability of data-at-rest are ensured through multiple backup solutions for my portfolio. 
+      These backups are stored on Google Drive, Microsoft OneDrive, my internal hard drive, and GitHub. </p>
+  </li>
+  <li>
+    <p><strong>PR.DS-02: The confidentiality, integrity, and availability of data-in-transit are protected:</strong></p>
+    <p>- Data-in-transit security is maintained by uploading files to our class server using FileZilla. This method requires 
+      password authentication of my SCSU student ID name and number to access my public_html directory and to upload files securely.
+    </p>
+  </li>
+  <li>
+    <p><strong>PR.DS-10: The confidentiality, integrity, and availability of data-in-use are protected:</strong></p>
+    <p>- Currently, the confidentiality, integrity, and availability of data-in-use in my CSC543 portfolio are not fully compliant. 
+      The connection to the class web server indicates it is not secure, requiring approval before accessing the site. Despite this, 
+      no sensitive information is shared on my webpages. </p>
+  </li>
+  <div style="display: flex; justify-content: space-around; max-width: 90%; margin: 0 auto;">
+    <div style="display: flex; flex-direction: column; align-items: center; text-align: center; max-width: 50%;margin-top: 60px;">
+    <img src="secure.png" alt="not secure site" style="width: 100%; max-width: 80%;">
+    </div>
+    <div style="display: flex; flex-direction: column; align-items: center; text-align: center; max-width: 50%;">
+    <img src="notsecure.png" alt="not secure site" style="width: 100%; max-width: 50%;">
+  </div>
+  </div>
+  <li>
+    <p><strong>PR.DS-11: Backups of data are created, protected, maintained, and tested:</strong></p>
+    <p>- Backups of my data are created, protected, maintained, and tested across multiple platforms, including Google Drive, Microsoft OneDrive, my internal hard drive, and GitHub.</p>
+  </li>
+</ul>
+
+<hr>
+
+                <!-- R5 -->
+
+<h5 style="text-align: center; color: rgb(255, 131, 197);">R5: One Or More Paths To Optimizing NIST CSF2 PR.DS Compliance Of My CSC 543 Portfolio:</h5>
+<p style="text-align: center;max-width: 75%;margin: 0 auto;"> To optimize NIST CSF2 PR.DS compliance of my CSC 543 portfolio, I will ensure that I never share
+   my credentials with anyone and follow best practices for password management to prevent unauthorized access to data-in-use on our class web serve.
+   Additionally, I will refrain from sharing sensitive information on my webpages.
+   Exploring alternative hosting options or platforms with secure connections and robust
+   data protection measures will further ensure the confidentiality, integrity, and availability of data-in-use.</p>
+
+
+<br>
+
+                  <!-- Video -->
+
+<div class="title">
+    <h1>My Experience With Assignment 8:</h1>
+</div>
+<br><br>
+<div style="display: flex; justify-content: center;">
+<iframe width="640" height="400"src="https://www.loom.com/embed/e19da95ea21d43e297872e3798dee1b7?sid=a9023381-463a-44bf-9c83-b38cba472ffa" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+</div>
+
+<br>
+<hr>
+
+
+
+                  <!-- References -->
+
+<h1 style="text-align: center; color: rgb(255, 131, 197);">References:</h1>
+<br>
+<p style="text-align: left;"> <strong>[1]</strong> “CMMI Institute - CMMI Levels of Capability and performance.” https://cmmiinstitute.com/learning/appraisals/levels</p>
+<p style="text-align: left;"> <strong>[2]</strong> C. G. Manning, “Technology readiness levels - NASA,” NASA, Sep. 27, 2023. https://www.nasa.gov/directorates/somd/space-communications-navigation-program/technology-readiness-levels/</p>
+<p style="text-align: left;"><strong>[3]</strong> P. Ruggiero and M. A. Heckathorn, "Data Backup Options," United States Computer Emergency Response Team (US-CERT), 2012. [Online]. Available: https://www.cisa.gov/sites/default/files/publications/data_backup_options.pdf</p>
+<p style="text-align: left;"><strong>[4]</strong> “GitHub: Let’s build from here,” GitHub, 2024. https://github.com/</p>
+
+<br><br>
+
+
+
+
+<footer>
+  <p>Jadyn Reilly</p>
+</footer>
+
+
+
+</body>
+</html>

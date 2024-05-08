@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="author" content="Jadyn Reilly " />
+  <title>Project 1 Presentation</title>
+
+  <link rel="stylesheet" type="text/css" media="screen, projection, print" href="scripts/slidy.css" /> <!-- http://www.w3.org/Talks/Tools/Slidy2/styles/slidy.css -->
+  <script src="scripts/slidy.js" charset="utf-8" type="text/javascript"></script> <!-- http://www.w3.org/Talks/Tools/Slidy2/scripts/slidy.js-->
+  <script src="scripts/jquery-3.3.1.min.js" charset="utf-8" type="text/javascript"></script> <!-- https://code.jquery.com/jquery-3.3.1.min.js -->
+  <script type="text/javascript" src="scripts/qrcode.js"></script>
+
+
+
+</head>
+
+<style>
+
+  /* two-colomn layout */
+  * {
+    box-sizing: border-box;
+  }
+
+  /* Create two equal columns that floats next to each other */
+  .column {
+    float: left;
+    width: 50%;
+    padding: 10px;
+    height: 300px; /* Should be removed. Only for demonstration */
+  }
+
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  .right-side-image {
+    float: right;
+    width: 300px;
+    border: 0px solid #004480;
+    padding: 10px;
+  }
+
+  /* global properties to apply to all images */
+  .img {
+    float: left;
+  }
+
+  .author {
+  color:rgb(255, 85, 170);
+}
+
+  /* qrcode generator image size */
+  #qrcode {
+    width:160px;
+    height:160px;
+    margin-top:15px;
+  }
+
+  /* email link */
+  a.email:link {color:#1d9a83;}
+  a.email:hover {color:rgb(255, 59, 157); background:#ffddf9;}
+
+  .title-image img{
+    text-align: center;
+    width: 50%; 
+    height: auto; 
+    display: block;
+    margin: 0 auto; 
+  
+  }
+
+  img {
+    width: 75%; 
+    height: auto; 
+    display: block;
+    margin: 0 auto; 
+  }
+
+  .options-container {
+    margin-top: 20px;
+    
+  }
+  .option-button {
+    display: inline-block;
+    padding: 10px 35px;
+    margin: 10px;
+    text-decoration: none !important;
+    font-size: 20px;
+    background-color: rgb(199, 219, 246);
+    color: rgb(200, 98, 244) !important;
+    border-radius: 7px;
+
+  }
+  .option-button:hover {
+    background-color: rgb(255, 163, 204);
+  }
+
+  iframe {
+    width: 75%;
+  }
+
+    
+</style>
+
+
+                                        <!--TITLE PAGE-->
+
+<body>
+
+<div class="slide titlepage">
+  <h1 class="title">CSC 543 Project 1 Presentation<br><font color = "#00080"></font></h1>
+  <p class="author">By: Jadyn Reilly</p>
+  <div class="title-image">
+    <img src=" https://blog.vive.com/express_media/images/extended_reality_final.scale-100.jpg" alt="XR">
+</div>
+  <br>
+  <button id="view-fullscreen">Click For Full Screen View</button>
+    <br><br>
+
+
+
+                                                          <!--JAVASCRIPT-->
+
+  <script type="text/javascript">
+    (function () {
+        var viewFullScreen = document.getElementById("view-fullscreen");
+        if (viewFullScreen) {
+            viewFullScreen.addEventListener("click", function () {
+                var docElm = document.documentElement;
+                if (docElm.requestFullscreen) {
+                    docElm.requestFullscreen();
+                }
+                else if (docElm.msRequestFullscreen) {
+                    docElm = document.body; 
+                    docElm.msRequestFullscreen();
+                }
+                else if (docElm.mozRequestFullScreen) {
+                    docElm.mozRequestFullScreen();
+                }
+                else if (docElm.webkitRequestFullScreen) {
+                    docElm.webkitRequestFullScreen();
+                }
+            }, false);
+        }
+
+        var cancelFullScreen = document.getElementById("cancel-fullscreen");
+        if (cancelFullScreen) {
+            cancelFullScreen.addEventListener("click", function () {
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                }
+                else if (document.msExitFullscreen) {
+                    document.msExitFullscreen();
+                }
+                else if (document.mozCancelFullScreen) {
+                    document.mozCancelFullScreen();
+                }
+                else if (document.webkitCancelFullScreen) {
+                    document.webkitCancelFullScreen();
+                }
+            }, false);
+        }
+
+        var fullscreenState = document.getElementById("fullscreen-state");
+        if (fullscreenState) {
+            document.addEventListener("fullscreenchange", function () {
+                fullscreenState.innerHTML = (document.fullscreenElement)? "" : "not ";
+            }, false);
+
+            document.addEventListener("msfullscreenchange", function () {
+                fullscreenState.innerHTML = (document.msFullscreenElement)? "" : "not ";
+            }, false);
+
+            document.addEventListener("mozfullscreenchange", function () {
+                fullscreenState.innerHTML = (document.mozFullScreen)? "" : "not ";
+            }, false);
+
+            document.addEventListener("webkitfullscreenchange", function () {
+                fullscreenState.innerHTML = (document.webkitIsFullScreen)? "" : "not ";
+            }, false);
+        }
+
+    })();
+    </script>
+    </div>
+
+                                                          <!--Options-->
+
+    <div class="section slide level1" id="options" style="text-align:center">
+      <br>
+      <h1 style="color: rgb(255, 85, 170); text-align: center;">Powerpoint Presentation</h1>
+        <hr>
+        
+
+
+            <br>
+
+            <iframe src="https://drive.google.com/file/d/185pKOUbrPeXNkDLNt3C5ytun_q1QTJSF/preview" width="640" height="480"></iframe>
+
+          </div>
+    </div>
+    
+
+
+
+
+
+
+
+
+
+                                                        <!--RESOURCES PAGE-->         
+
+<div class="section slide level1" id="references">
+  <br>
+  <h1 style="color: cornflowerblue; text-align: center;">☆ References ☆</h1>
+  <hr>
+
+
+    <li>IEEE Standards Association. 2024. The IEEE Global Initiative on Ethics of Extended Reality. <a href="https://standards.ieee.org/industry-connections/ethics-extended-reality/">https://standards.ieee.org/industry-connections/ethics-extended-reality/</a></li>
+    <li>W3Schools online web tutorials. (n.d.).<a href="https://www.w3schools.com/">https://www.w3schools.com/</a></li>
+    <li>Google Scholar. (n.d.). <a href="https://scholar.google.com/">https://scholar.google.com/</a></li>
+    <li>Search. (n.d.). ACM Digital Library.<a href="https://dl.acm.org/action/doSearch?AllField=xr+technologies">https://dl.acm.org/action/doSearch?AllField=xr+technologies</a>.</li>
+  <br>
+  <a class="email" href="mailto:reillyj18@southernct.edu">
+  <ul style=
+    "text-align: right;
+    font-family: Verdana,sans-serif;">
+    reillyj18@southernct.edu</a><br>
+    <img class="right-side-image" src="https://myiee.org/storage/krMKrGXXFAxdiTJKE2wl8Dw1JSGqu1vbeJVtsgb9.png"></ul>
+
+</div>
+
+
+  </body>
+</html>

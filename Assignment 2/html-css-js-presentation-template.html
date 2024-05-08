@@ -1,0 +1,587 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="author" content="Jadyn Reilly " />
+  <title>Assignment 2</title>
+  <link rel="stylesheet" type="text/css" media="screen, projection, print"
+    href="scripts/slidy.css" /> <!-- http://www.w3.org/Talks/Tools/Slidy2/styles/slidy.css -->
+  <script src="scripts/slidy.js"
+    charset="utf-8" type="text/javascript"></script> <!-- http://www.w3.org/Talks/Tools/Slidy2/scripts/slidy.js-->
+  <script src="scripts/jquery-3.3.1.min.js"
+    charset="utf-8" type="text/javascript"></script> <!-- https://code.jquery.com/jquery-3.3.1.min.js -->
+  <script type="text/javascript" src="scripts/qrcode.js"></script>
+</head>
+
+<style>
+
+  /* two-colomn layout */
+  * {
+    box-sizing: border-box;
+  }
+
+  /* Create two equal columns that floats next to each other */
+  .column {
+    float: left;
+    width: 50%;
+    padding: 10px;
+    height: 300px; /* Should be removed. Only for demonstration */
+  }
+
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  .right-side-image {
+    float: right;
+    width: 300px;
+    border: 0px solid #004480;
+    padding: 10px;
+  }
+
+  /* global properties to apply to all images */
+  .img {
+    float: left;
+  }
+
+  .author {
+  color:rgb(176, 44, 233);
+}
+
+  /* qrcode generator image size */
+  #qrcode {
+    width:160px;
+    height:160px;
+    margin-top:15px;
+  }
+
+  /* email link */
+  a.email:link {color:#1d9a83;}
+  a.email:hover {color:rgb(255, 59, 157); background:#ffddf9;}
+
+  .title-image img{
+     text-align: center;
+    width: 40%; 
+    height: auto; 
+    display: block;
+    margin: 0 auto; 
+  
+  }
+
+</style>
+
+<body>
+<div class="slide titlepage">
+  <h1 class="title" style="color: rgb(55, 55, 55);">CSC 543 Assignment 2</h1>
+  <p class="author">Jadyn Reilly</p>
+  <p class="date">Computer Science Department <br><font color = "#8080FF" style="text-shadow:-1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;">Southern Connecticut State University</font></p>
+  <button id="view-fullscreen">Click For Full Screen View</button>
+    <br>
+    <br>
+    <div class="title-image">
+            <img src="images/hello_world.png" alt="coding">
+    </div>
+
+  <script type="text/javascript">
+    (function () {
+        var viewFullScreen = document.getElementById("view-fullscreen");
+        if (viewFullScreen) {
+            viewFullScreen.addEventListener("click", function () {
+                var docElm = document.documentElement;
+                if (docElm.requestFullscreen) {
+                    docElm.requestFullscreen();
+                }
+                else if (docElm.msRequestFullscreen) {
+                    docElm = document.body; //overwrite the element (for IE)
+                    docElm.msRequestFullscreen();
+                }
+                else if (docElm.mozRequestFullScreen) {
+                    docElm.mozRequestFullScreen();
+                }
+                else if (docElm.webkitRequestFullScreen) {
+                    docElm.webkitRequestFullScreen();
+                }
+            }, false);
+        }
+
+        var cancelFullScreen = document.getElementById("cancel-fullscreen");
+        if (cancelFullScreen) {
+            cancelFullScreen.addEventListener("click", function () {
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                }
+                else if (document.msExitFullscreen) {
+                    document.msExitFullscreen();
+                }
+                else if (document.mozCancelFullScreen) {
+                    document.mozCancelFullScreen();
+                }
+                else if (document.webkitCancelFullScreen) {
+                    document.webkitCancelFullScreen();
+                }
+            }, false);
+        }
+
+        var fullscreenState = document.getElementById("fullscreen-state");
+        if (fullscreenState) {
+            document.addEventListener("fullscreenchange", function () {
+                fullscreenState.innerHTML = (document.fullscreenElement)? "" : "not ";
+            }, false);
+
+            document.addEventListener("msfullscreenchange", function () {
+                fullscreenState.innerHTML = (document.msFullscreenElement)? "" : "not ";
+            }, false);
+
+            document.addEventListener("mozfullscreenchange", function () {
+                fullscreenState.innerHTML = (document.mozFullScreen)? "" : "not ";
+            }, false);
+
+            document.addEventListener("webkitfullscreenchange", function () {
+                fullscreenState.innerHTML = (document.webkitIsFullScreen)? "" : "not ";
+            }, false);
+        }
+
+    })();
+    </script>
+    </div>
+
+
+      <!--Code Editors-->
+
+    <div class="section slide level1" id="code_editors">
+      <br>
+      <h1 style="color:rgb(84, 84, 84);">Code Editors:</h1>
+      <div class="row">
+        <div class="column">
+          <ul>
+            <li><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Atom_editor_logo.svg/1200px-Atom_editor_logo.svg.png" style="width: 40px; height: 40px;"><a href="https://atom-editor.cc/">Atom - 1</a></li>
+        
+            <li><img src="https://upload.wikimedia.org/wikipedia/en/8/89/BBEdit.png" style="width: 40px; height: 40px;"><a href="https://www.barebones.com/products/bbedit/">BBEdit - 1</a></li>
+        
+            <li><img src="https://www.bluej.org/bluej-icon-256-2x.png" style="width: 40px; height: 40px;"><a href="https://www.bluej.org/">Bluej - 1</a></li>
+        
+            <li><img src="https://store-images.s-microsoft.com/image/apps.51477.13510798886580046.f1358615-96cf-4f14-994f-0d940b992055.82c484f5-bdff-4639-ac43-5665e4ce6e72" style="width: 40px; height: 40px;"><a href="https://apps.microsoft.com/detail/9NBLGGH6B82Z?hl=en-US&gl=US">Notepad - 2</a></li>
+        
+            <li><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Notepad%2B%2B_Logo.svg/1200px-Notepad%2B%2B_Logo.svg.png" style="width: 40px; height: 40px;"><a href="https://notepad-plus-plus.org/">Notepad ++ - 3</a></li>
+        
+            <li><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Visual_Studio_Code_1.35_icon.svg/1200px-Visual_Studio_Code_1.35_icon.svg.png" style="width: 40px; height: 40px;"><a href="https://code.visualstudio.com/docs"> Visual Studio Code - 22</a></li>
+
+          </ul>
+        </div>
+
+        <div class="column">
+          <img src="images/Code Editors.png" alt="code editor graph" style="max-width:100%;height:auto;">
+        </div>
+
+          <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+                  <h2 style="color:rgb(84, 84, 84);">Visual Studio Code</h2>
+                  <ul>
+              <li>Advantages: Fast and efficent, cross-platform support - available for Mac, Windows and Linux, built in debugging capabilities, user frinedly. </li>
+              <li>Disadvtanges: Could be overwhelming for beginners, doesnt perform well when running multiple extensions at once. </li>
+              <li>Considerations: Good for working on more complex projects that require advanced features. </li>
+
+             </ul>
+             <h2 style="color:rgb(84, 84, 84);">Notepad++</h2>
+             <ul>
+         <li>Advantages: Fast and efficent when viewing text files and making quick edits, suppports syntax highlighting.  </li>
+         <li>Disadvtanges: Only available for Windows, limited features compares to other editors. </li>
+         <li>Considerations: Great text editor for Windows users who are looking for a simple text editor. </li>
+
+        </ul>
+
+      </ul>
+      <h2 style="color:rgb(84, 84, 84);">Notepad</h2>
+      <ul>
+  <li>Advantages: Simple text editor, pre installed with Microsoft Windows, interface is not distracting.  </li>
+  <li>Disadvtanges: Minimal features, does not support syntax highlighting. </li>
+  <li>Considerations: Good for quick and simple edits to text files.</li>
+
+      </ul>
+
+             <br><br>
+
+        </div>
+        </div>
+      </div>
+    </div>
+
+
+      <!--Programming Languages-->
+
+    <div class="section slide level1" id="programming_languages">
+      <br>
+      <h1 style="color:rgb(84, 84, 84);">Programming Languages:</h1>
+      <div class="row">
+        <div class="column">
+          <ul>
+            <li><img src="https://www.britefish.net/wp-content/uploads/2019/07/logo-c-1.png" style="width: 40px; height: 40px;"><a href="https://en.cppreference.com/w/c/language">C - 1</a></li>
+        
+            <li><img src="images/C++.png" style="width: 40px; height: 40px;"><a href="https://isocpp.org/get-started">C++ - 1</a></li>
+        
+            <li><img src="images/java.png" style="width: 40px; height: 40px;"><a href="https://www.javascript.com/">JavaScript - 10</a></li>
+        
+            <li><img src="images/php.png" style="width: 40px; height: 40px;"><a href="https://www.php.net/docs.php">PHP - 6</a></li>
+        
+            <li><img src="images/python.png" style="width: 40px; height: 40px;"><a href="https://docs.python.org/3/">Python - 4</a></li>
+        
+            <li><img src="images/rust.png" style="width: 40px; height: 40px;"><a href="https://www.rust-lang.org/">Rust - 1</a></li>
+
+            <li><img src="images/sql.png" style="width: 40px; height: 40px;"><a href="https://www.w3schools.com/sql/">SQL - 2</a></li>
+
+            <li><img src="images/typescript.svg" style="width: 40px; height: 40px;"><a href="https://www.typescriptlang.org/docs/">Typescript - 1</a></li>
+
+          </ul>
+        </div>
+
+        <div class="column">
+          <img src="images/Programming Languages.png" alt="programming languages graph" style="max-width:100%;height:auto;">
+        </div>
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+                  <h2 style="color:rgb(84, 84, 84);">Javascript</h2>
+                  <ul>
+              <li>Advantages: Popular for both front-end and back-end development, easy to learn, many features. </li>
+              <li>Disadvtanges: Slower than other languages,not all browsers are compatible, potential security implications if not used properly.</li>
+              <li>Considerations: Ideal for web developers who want to build interactive web applications. </li>
+
+             </ul>
+             <h2 style="color:rgb(84, 84, 84);">Python</h2>
+             <ul>
+         <li>Advantages: Beginner-friendly, easy to read syntax, large library. </li>
+         <li>Disadvtanges: Performance can be slow compared to other languages, takes up a lot of memory. </li>
+         <li>Considerations: Good for beginners looking to learn a language and has a large community for support. </li>
+
+        </ul>
+
+      </ul>
+      <h2 style="color:rgb(84, 84, 84);">PHP</h2>
+      <ul>
+  <li>Advantages: Large community for support and easy/quick learning, integrated with other popular frameworks and free to use.   </li>
+  <li>Disadvtanges: Security issues may arise if not used carefully, limited options for debugging.</li>
+  <li>Considerations: Cross-platform support - Linux, MacOs, Windows, free to use, and manages code easily.</li>
+
+      </ul>
+
+             <br><br>
+
+         </div>
+        </div>
+      </div>
+    </div>
+
+    
+  <!--Frameworks-->
+
+    <div class="section slide level1" id="frameworks">
+      <br>
+      <h1 style="color:rgb(84, 84, 84);">Frameworks:</h1>
+      <div class="row">
+        <div class="column">
+          <ul>
+            <li><img src="images/angular.png" style="width: 40px; height: 40px;"><a href="https://angular.io/">Angular - 4</a></li>
+              <li><img src="images/asp.net.png" style="width: 40px; height: 40px;"><a href="https://dotnet.microsoft.com/en-us/apps/aspnet">ASP.NET - 2</a></li>
+                <li><img src="images/boot.jpeg" style="width: 40px; height: 40px;"><a href="https://getbootstrap.com/">Bootstrap - 6</a></li>
+                  <li><img src="images/igniter.png" style="width: 40px; height: 40px;"><a href="https://www.codeigniter.com/">CodeIgniter - 1</a></li>
+                    <li><img src="images/cypress.jpeg" style="width: 40px; height: 40px;"><a href="https://www.cypress.io/">Cypress - 1</a></li>
+                      <li><img src="images/django.png" style="width: 40px; height: 40px;"><a href="https://www.djangoproject.com/">Django - 11</a></li>
+                        <li><img src="images/express.png" style="width: 40px; height: 40px;"><a href="https://expressjs.com/">Express.js - 1</a></li>
+                          <li><img src="images/flask.jpg" style="width: 40px; height: 40px;"><a href="https://flask.palletsprojects.com/en/3.0.x/">Flask - 10</a></li>
+                            <li><img src="images/lara.png" style="width: 40px; height: 40px;"><a href="https://laravel.com/">Laravel - 2</a></li>
+                              <li><img src="images/nex.svg" style="width: 40px; height: 40px;"><a href="https://nextjs.org/">Next.js - 1</a></li>
+                                <li><img src="images/node.jpeg" style="width: 40px; height: 40px;"><a href="https://nodejs.org/docs/v0.10.2/logos/">Node.js - 7</a></li>
+                                  <li><img src="images/rails.png" style="width: 40px; height: 40px;"><a href="https://rubyonrails.org/">Rails - 2</a></li>
+                                    <li><img src="images/react.png" style="width: 40px; height: 40px;"><a href="https://react.dev/">React.js - 11</a></li>
+                                      <li><img src="images/spring.png" style="width: 40px; height: 40px;"><a href="https://spring.io/projects/spring-boot">Spring-Boot - 2</a></li>
+                                        <li><img src="images/unity.webp" style="width: 40px; height: 40px;"><a href="https://unity.com/">Unity - 1</a></li>
+                                          <li><img src="images/vue.png" style="width: 40px; height: 40px;"><a href="https://vuejs.org/">Vue.js - 1</a></li>            
+                  <br>
+                  <br>
+
+          </ul>
+        </div>
+
+        <div class="column">
+          <img src="images/Frameworks.png" alt="frameworks graph" style="max-width:100%;height:auto;">
+        </div>
+
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+        <h2 style="color:rgb(84, 84, 84);">Django</h2>
+        <ul>
+
+    <li>Advantages: Django is an advanced python framework known for its simplistic interface, security features, and large community of developers.   </li>
+    <li>Disadvtanges: Djangos advanced features might not be the best option for simple projects. Learning curve for those not familiar with using python. </li>
+    <li>Considerations: Django is a good option for users who are looking to expand their skill set with the Python language. </li>
+
+   </ul>
+   <h2 style="color:rgb(84, 84, 84);">React.js</h2>
+   <ul>
+<li>Advantages: React.js is a popular javascript library known for its component based design. This makes it easy to manage the interface. </li>
+<li>Disadvtanges: Reacts syntax for javascript is a learning curve for beginners. Managing data flow can be slower for bigger applications.</li>
+<li>Considerations: Good for users looking for a component based design because you may feel more organized being able to break the user interface into smaller components. </li>
+
+</ul>
+
+</ul>
+<h2 style="color:rgb(84, 84, 84);">Flask</h2>
+<ul>
+<li>Advantages: Simplistic approach known for its minimalistic yet essential features. Large community of developers and many libraries adding to its functionality. </li>
+<li>Disadvtanges: Flask has minimal built in features so you may neede to download extensions for more functionality. Learning curve for users new to web programming and Python.</li>
+<li>Considerations: Good choice for users who are building small - medium sized web applications where simplicity is preferred.  </li>
+
+</ul>
+
+   <br><br> 
+
+      </div>
+    </div>
+
+
+      <!--Data sources-->
+
+    <div class="section slide level1" id="data_sources">
+      <br>
+      <h1 style="color:rgb(84, 84, 84);">Data Sources:</h1>
+      <div class="row">
+        <div class="column">
+          <ul>
+            <li><img src="images/maria.png" style="width: 40px; height: 40px;"><a href="https://mariadb.org/">MariaDB - 1</a></li>
+              <li><img src="images/mongo.webp" style="width: 40px; height: 40px;"><a href="https://www.mongodb.com/">MongoDB - 1</a></li>
+                <li><img src="images/mysql.png" style="width: 40px; height: 40px;"><a href="https://www.mysql.com/">MySQL - 6</a></li>
+                  <li><img src="images/nosql.png" style="width: 40px; height: 40px;"><a href="https://www.mongodb.com/nosql-explained">NoSQL - 2</a></li>
+                    <li><img src="images/alchemy.png" style="width: 40px; height: 40px;"><a href="https://www.sqlalchemy.org/">SQLAlchemy - 1</a></li>           
+
+          </ul>
+        </div>
+
+        <div class="column">
+          <img src="images/Data Sources.png" alt="data sources graph" style="max-width:100%;height:auto;">
+        </div>
+
+
+
+        <br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+        <h2 style="color:rgb(84, 84, 84);">MySQL</h2>
+        <ul>
+
+    <li>Advantages: Popular relational database management system with a large community for support, open source.  </li>
+    <li>Disadvtanges: Stability issues where data is corrupted under certain situations.</li>
+    <li>Considerations: Good when looking for fast data insert capabilities. </li>
+
+   </ul>
+   <h2 style="color:rgb(84, 84, 84);">MongoDB</h2>
+   <ul>
+<li>Advantages: High performance and simplicity.</li>
+<li>Disadvtanges: Not great for financial systems because it doesnt have strong consistency. </li>
+<li>Considerations: Good for users looking for a flexibile database. </li>
+
+</ul>
+
+</ul>
+<h2 style="color:rgb(84, 84, 84);">SQLAlchemy</h2>
+<ul>
+<li>Advantages: Supports multiple database backends like MySQL. Doesnt require knowledge of SQL to learn. </li>
+<li>Disadvtanges: Requires a lot of understanding that can be complex for beginners.</li>
+<li>Considerations: Good choice for python developers looking to improve their code. </li>
+
+</ul>
+
+   <br><br>
+
+      </div>
+    </div>
+
+
+
+    <!--File Transfer Utilities-->
+
+    <div class="section slide level1" id="file_transfer">
+      <br>
+      <h1 style="color:rgb(84, 84, 84);">File Transfer Utilities:</h1>
+      <div class="row">
+        <div class="column">
+          <ul>
+            <li><img src="images/zilla.png" style="width: 40px; height: 40px;"><a href="https://filezilla-project.org/">FileZilla - 18</a></li>
+              <li><img src="images/git.png" style="width: 40px; height: 40px;"><a href="https://git-scm.com/">Git - 1</a></li>
+                <li><img src="images/ssh.png" style="width: 40px; height: 40px;"><a href="https://www.openssh.com/">SSH - 1</a></li>
+                  <li><img src="images/winscp.png" style="width: 40px; height: 40px;"><a href="https://winscp.net/eng/index.php">WinSCP - 1</a></li>           
+
+          </ul>
+        </div>
+
+        <div class="column">
+          <img src="images/File Transfer Utilities.png" alt="file transfer utilities graph" style="max-width:100%;height:auto;">
+        </div>
+
+        <br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+        <h2 style="color:rgb(84, 84, 84);">FileZilla</h2>
+        <ul>
+
+    <li>Advantages: User-friendly interface for trasnferring files through FTP, SFTP, and FTPS protocols. Cross-platform compatibility. </li>
+    <li>Disadvtanges: Features are not as advanced as other files transfers. </li>
+    <li>Considerations: Reliable FTP client for transferring and managing files. </li>
+
+   </ul>
+   <h2 style="color:rgb(84, 84, 84);">WinSCP</h2>
+   <ul>
+<li>Advantages: User friendly with features such as drag and drop. </li>
+<li>Disadvtanges: Only available for Windows operating systems.</li>
+<li>Considerations: A good file transfer tool for Windows users looking for security and realiability. </li>
+
+</ul>
+
+</ul>
+<h2 style="color:rgb(84, 84, 84);">Git</h2>
+<ul>
+<li>Advantages: Powerful version control tool for tracking changes in source code. Strong support and realiability. </li>
+<li>Disadvtanges: Hard to get used to for beginners that are unfamiliar with version control.  </li>
+<li>Considerations: Essential for software development teams, good to get familiar with version controls.  </li>
+
+</ul>
+
+   <br><br>
+      </div>
+    </div>
+      </div>
+    </div>
+
+
+
+  <!--Web Browsers-->
+
+    <div class="section slide level1" id="web_browser">
+      <br>
+      <h1 style="color:rgb(84, 84, 84);">Web Browsers:</h1>
+      <div class="row">
+        <div class="column">
+          <ul>
+              <li><img src="images/chrome.png" style="width: 40px; height: 40px;"><a href="https://www.google.com/chrome/?brand=WDIF&ds_kid=43700078347700321&gclid=Cj0KCQiAzoeuBhDqARIsAMdH14Hls9BE540c8h9bK_N8dYfDsY3oUSF4b2NEulqUluwFE13UYPhP4SsaAoxNEALw_wcB&gclsrc=aw.ds">Google Chrome - 19</a></li>
+                <li><img src="images/edge.png" style="width: 40px; height: 40px;"><a href="https://www.microsoft.com/en-us/edge?ep=313&form=MA13M0&es=40">Microsoft Edge - 2</a></li>
+                  <li><img src="images/fire.png" style="width: 40px; height: 40px;"><a href="https://www.mozilla.org/en-US/">Mozilla Firefox - 5</a></li>
+                    <li><img src="images/safari.png" style="width: 40px; height: 40px;"><a href="https://www.apple.com/safari/">Safari - 2</a></li>          
+
+          </ul>
+        </div>
+
+        <div class="column">
+          <img src="images/Web Browsers.png" alt="web browsers graph" style="max-width:100%;height:auto;">
+        </div>
+
+        <br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+        <h2 style="color:rgb(84, 84, 84);">Google Chrome</h2>
+        <ul>
+
+    <li>Advantages: Efficent and fast browsing experience. Easy to use interface. Strong performance.  </li>
+    <li>Disadvtanges: There have been concerns about Google data tracking as well as privacy issues. </li>
+    <li>Considerations: Good for any user looking for a customizable and quick web browser. </li>
+
+   </ul>
+   <h2 style="color:rgb(84, 84, 84);">Mozilla Firefox</h2>
+   <ul>
+<li>Advantages: Developer-friendly features and emphasizes a focus on privacy. </li>
+<li>Disadvtanges: Memory usage is not as good as other web browsers.</li>
+<li>Considerations: Good for users looking for an open source web browser. </li>
+
+</ul>
+
+</ul>
+<h2 style="color:rgb(84, 84, 84);">Safari</h2>
+<ul>
+<li>Advantages: Features include Intelligent Tracking Prevention. Energy efficient. Available through all iOS devices.  </li>
+<li>Disadvtanges: Not available on non Apple platforms. Not as many extensions as Firefox or Chrome. </li>
+<li>Considerations: Ideal for users with a MacOs operating system looking for a fast, privacy focused web browser. </li>
+
+</ul>
+
+   <br><br>
+      </div>
+    </div>
+      </div>
+    </div>
+
+
+<!--Operating Systems-->
+    <div class="section slide level1" id="operating_systems">
+      <br>
+      <h1 style="color:rgb(84, 84, 84);">Operating Systems:</h1>
+      <div class="row">
+        <div class="column">
+          <ul>
+            <li><img src="images/linux.png" style="width: 40px; height: 40px;"><a href="https://www.linux.org/">Linux - 1</a></li>
+              <li><img src="images/mac.png" style="width: 40px; height: 40px;"><a href="https://www.apple.com/macbook-pro/">MacOs - 2</a></li>
+                <li><img src="images/windows.jpg" style="width: 40px; height: 40px;"><a href="https://www.microsoft.com/en-us/windows?r=1">Windows - 4</a></li>        
+
+          </ul>
+        </div>
+
+        <div class="column">
+          <img src="images/Operating Systems.png" alt="operating systems graph" style="max-width:100%;height:auto;">
+        </div>
+
+        <br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+        <h2 style="color:rgb(84, 84, 84);">Windows</h2>
+        <ul>
+    <li>Advantages: Regular updates, security, and feature upgrades. Popular operating system with many options for software compatibility. </li>
+    <li>Disadvtanges: Performance depends on software updates, vulnerable to security threats. </li>
+    <li>Considerations: Ideal operating system for anyone, many features, can be used for personal or buisness use. </li>
+
+   </ul>
+   <h2 style="color:rgb(84, 84, 84);">MacOs</h2>
+   <ul>
+<li>Advantages: Long battery life, lightweight, sleek interface.    </li>
+<li>Disadvtanges: Pricier than Windows, limiting affortability for many users. Simple repairs cost alot of money, not many ports unless you purchase accesories, which can also be costly.    </li>
+<li>Considerations: Although expensive, good for performing everyday tasks and lasts a long time. </li>
+
+</ul>
+
+</ul>
+<h2 style="color:rgb(84, 84, 84);">Linux</h2>
+<ul>
+<li>Advantages: Linux is open source allowing flexibility and customization.   </li>
+<li>Disadvtanges: Learning curve if switching over from a Windows or Mac.</li>
+<li>Considerations: Good for users looking for an open source community driven system. Reliable and secure.</li>
+
+</ul>
+
+   <br><br>
+
+</div>
+</div>
+</div>
+</div>
+
+
+     
+<!--Resources-->
+
+<div class="section slide level1" id="Resources">
+  <h1 style="color: rgb(84, 84, 84);">Resources</h1>
+  <ul class="incremental">
+      <li>Microsoft. (2021, November 3). Visual studio code - code editing. redefined. RSS. <a href="https://code.visualstudio.com/">https://code.visualstudio.com/</a></li>
+      <li>Codex, A. C. (2023, February 2). What are the advantages and disadvantages of using JavaScript?. Reintech media. <a href="https://reintech.io/blog/advantages-and-disadvantages-of-using-javascript">https://reintech.io/blog/advantages-and-disadvantages-of-using-javascript</a></li>
+      <li>GeeksforGeeks. (2022, June 20). Advantages and disadvantages of PHP. GeeksforGeeks. <a href="https://www.geeksforgeeks.org/advantages-and-disadvantages-of-php/">https://www.geeksforgeeks.org/advantages-and-disadvantages-of-php/</a></li>
+      <li>Jethva, H. (2021, November 5). Winscp vs filezilla – what’s the difference? (pros and cons). Cloud Infrastructure Services. <a href="https://cloudinfrastructureservices.co.uk/winscp-vs-filezilla/">https://cloudinfrastructureservices.co.uk/winscp-vs-filezilla/</a></li>
+      <li>MySQL Advantages and disadvantages. Blue Claw Database Developer Resource. (2021, January 4). <a href="https://blueclawdb.com/mysql/advantages-disadvantages-mysql/">https://blueclawdb.com/mysql/advantages-disadvantages-mysql/</a></li>
+  </ul>
+
+  <a class="email" href="mailto:reillyj18@southernct.edu">
+    <ul style=
+      "text-align: right;
+      font-family: Verdana,sans-serif;
+      text-shadow:-1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;">
+      reillyj18@southernct.edu</a><br>
+      <img class="right-side-image" src="https://myiee.org/storage/krMKrGXXFAxdiTJKE2wl8Dw1JSGqu1vbeJVtsgb9.png"></ul>
+</div>
+
+</body>
+</html>

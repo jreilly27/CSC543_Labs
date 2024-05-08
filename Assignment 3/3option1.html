@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Assignment 3</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen, projection, print" href="scripts/slidy.css" /> <!-- http://www.w3.org/Talks/Tools/Slidy2/styles/slidy.css -->
+    <link rel="stylesheet" type="text/css" href="option1.css"/>
+</head>
+<body>
+ <!--TEMPERATURE CONVERTER-->
+
+<div class="section slide level1" id="temperature-converter" style="text-align:center">
+    <br>
+    <h1 style="color: rgb(34, 34, 34); text-align: center;"> ☼ Temperature Converter ☼ </h1> 
+    <hr><br>
+    
+    <div class="container">
+        <p> Type in any number below to convert your Fahrenheit temperature to Celsius!</p>
+      </div>
+                                                
+<div class="converter">
+    <label for="fahrenheit">Enter degrees in °Fahrenheit:</label>
+    <input type="number" id="fahrenheit" placeholder="Input Number in °F" step="0.01" oninput="convert()" />
+
+    <div class="result" id="result"></div>
+</div>
+                                                              
+                                                              
+<script>
+                                                              
+    function convert() {
+        var fahrenheit = parseFloat(document.getElementById("fahrenheit").value);
+        var celsius = Math.round((fahrenheit - 32) * 5/9);
+        document.getElementById("result").innerHTML = "Degrees in °Celsius: " + celsius;
+    }
+                                                              
+                                                              
+</script>
+   </div>
+                                                            
+<br><br><br>
+
+   <a href="#" class="button" onclick="goBack()">Go Back To Options</a>
+
+<script>
+function goBack() {
+  window.history.back();
+}
+</script>
+
+    </body>
+</html>

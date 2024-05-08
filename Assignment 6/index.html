@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Style-Type" content="text/css">
+    <meta name="author" content="Jadyn Reilly">
+    <title>Peer Review Feedback</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.7.1/jszip.min.js"></script>
+
+    <style>
+
+      body {
+        background-color: ghostwhite;
+
+      }
+
+      h1{
+        font-size: 30px;
+      }
+
+      .title {
+        color: rgb(238, 101, 186);
+        text-align: center;
+        margin-top: 20px;
+        width: 100%;
+      
+      }
+
+      .time {
+        color: rgb(50, 51, 100);
+      }
+
+      .options-container {
+        margin-top: 20px;
+        text-align: center;
+    
+      }
+
+      .option-button {
+        display: inline-block;
+        padding: 10px 35px;
+        margin: 20px;
+        margin-top: 0px;
+        text-decoration: none;
+        font-size: 20px;
+        background-color: rgb(50, 51, 100);
+        color: ghostwhite;
+        border-radius: 7px;
+        border: 1px solid transparent;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); 
+      
+      }
+
+      .option-button:hover {
+        background-color: rgb(243, 243, 243);
+        color: rgb(252, 94, 199);
+        
+      }
+      
+
+      footer {
+        background-color: rgb(50, 51, 100);
+        color: ghostwhite;
+        padding: 20px;
+        text-align: right; 
+      }
+
+      footer p {
+        margin: 0;
+      }
+
+      .csv-container {
+        text-align: center;
+        height: auto;
+        font-size: small;
+
+      }
+
+      .csv-table {
+        color: rgb(50, 51, 100);
+        border-collapse: collapse;
+        width: 99%; 
+        text-align: center;
+        margin: 0 auto;
+      }
+
+      .csv-table th, .csv-table td {
+        border: 1px solid rgb(50, 51, 100);
+        padding: 8px;
+        text-align: center;
+      }
+
+      .csv-table tr:hover {
+        background-color: rgb(245, 152, 210); 
+      }
+
+      #csv-table td:nth-child(3),
+      #csv-table th:nth-child(3) {
+        width: 115px;
+
+      }
+
+      video {
+            max-width: 70%;
+            max-height: 70%;
+        }
+
+    </style>
+</head>
+<body>
+  <div class="title">
+    <h1><span style='font-size:35px;color: rgb(51, 50, 100);font-family: monospace;'>&#9786;</span> Assignment 6 <span style='font-size:35px;color: rgb(51, 50, 100);font-family: monospace;'>&#9786;</span> </h1>
+    <p class="time" id="datetime"></p>
+  </div>
+
+  <hr>
+
+  <script>
+    var now = new Date();
+    var monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+    var month = monthNames[now.getMonth()];
+    var day = now.getDate();
+    var year = now.getFullYear();
+    var time = now.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+    var dateString = month + " " + day + ", " + year + " at " + time;
+    document.getElementById("datetime").innerHTML = dateString;
+  </script>
+
+  <div class="options-container">
+     <button class="option-button" onclick="downloadZip()">Download CSV as ZIP</button>
+     <button class="option-button" onclick="downloadCSV()">Download CSV File</button>
+  </div>
+
+  <script>
+  function downloadZip() {
+
+      var zip = new JSZip();
+  
+      fetch('data/assignment6.csv')
+          .then(response => response.text())
+          .then(csvContent => {
+
+              zip.file('assignment6.csv', csvContent);
+     
+              zip.generateAsync({type:"blob"})
+                  .then(function(content) {
+     
+                      var link = document.createElement('a');
+                      link.download = 'assignment6.zip';
+                      link.href = URL.createObjectURL(content);
+  
+
+                      link.click();
+                  });
+          });
+  }
+
+  </script>
+
+  <script>
+    function downloadCSV() {
+    fetch('data/assignment6.csv')
+        .then(response => response.blob())
+        .then(blob => {
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = 'assignment6.csv';
+            link.click();
+        })
+        .catch(error => console.error('Error downloading CSV:', error));
+}
+  </script>
+  
+
+
+
+  <div class="csv-container">
+    <table class="csv-table" id="csv-table"></table>
+  </div>
+
+
+<script>
+  fetch('data/assignment6.csv')
+      .then(response => response.text())
+      .then(csv => {
+          const rows = csv.split('\n');
+          let html = '';
+          let isFirstRow = true;
+          rows.forEach(row => {
+              const columns = row.split(',');
+              html += '<tr>';
+              columns.forEach(column => {
+                  if (isFirstRow) {
+                      html += '<th style="background-color: rgb(73, 161, 118);" color: rgb(50,51,100);">' + column + '</th>';
+                  } else {
+                      html += '<td>' + column + '</td>';
+                  }
+              });
+              html += '</tr>';
+              isFirstRow = false;
+          });
+          document.getElementById('csv-table').innerHTML = html;
+      })
+      .catch(error => console.error('Error fetching CSV:', error));
+</script>
+<br>
+<h1 style="text-align: center; color: rgb(238, 101, 186);">My Experience:</h1>
+<br>
+<video controls style="display: block; margin: 0 auto;">
+  <source src="assignment6.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+<br>
+
+<footer>
+  <p>Jadyn Reilly</p>
+</footer>
+
+
+
+</body>
+</html>
+
+
+

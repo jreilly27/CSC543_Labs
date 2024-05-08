@@ -1,0 +1,129 @@
+<div id="everviz-b0cc9581-e5e5-48f9-ab33-c439df8eb086"></div>
+  <script>
+    (function(){ 
+      
+var files = ["https://code.highcharts.com/stock/highstock.js","https://code.highcharts.com/highcharts-more.js","https://code.highcharts.com/highcharts-3d.js","https://code.highcharts.com/modules/data.js","https://code.highcharts.com/modules/exporting.js","https://code.highcharts.com/modules/funnel.js","https://code.highcharts.com/modules/annotations.js","https://code.highcharts.com/stock/modules/annotations-advanced.js","https://code.highcharts.com/stock/modules/stock-tools.js","https://code.highcharts.com/modules/accessibility.js","https://code.highcharts.com/modules/solid-gauge.js"],
+loaded = 0;
+
+if (typeof window["HighchartsEditor"] === "undefined") {
+  window.HighchartsEditor = {
+    ondone: [cl],
+    hasWrapped: false,
+    hasLoaded: false
+  };
+  include(files[0]);
+} else {
+  if (window.HighchartsEditor.hasLoaded) {
+    cl();
+  } else {
+    window.HighchartsEditor.ondone.push(cl);
+  }
+}
+
+function isScriptAlreadyIncluded(src) {
+  var scripts = document.getElementsByTagName("script");
+  for (var i = 0; i < scripts.length; i++) {
+    if (scripts[i].hasAttribute("src")) {
+      if ((scripts[i].getAttribute("src") || "").indexOf(src) >= 0 
+      || (scripts[i].getAttribute("src") === "http://code.highcharts.com/highcharts.js" && src === "https://code.highcharts.com/stock/highstock.js")
+      ) {
+        return true;
+      }
+    }
+  }
+  return false;
+}
+
+function check() {
+  if (loaded === files.length) {
+    for (var i = 0; i < window.HighchartsEditor.ondone.length; i++) {
+      try {
+        window.HighchartsEditor.ondone[i]();
+      } catch (e) {
+        console.error(e);
+      }
+    }
+  }
+  window.HighchartsEditor.hasLoaded = true;
+}
+
+function include(script) {
+  function next() {
+    ++loaded;
+    if (loaded < files.length) {
+      include(files[loaded]);
+    }
+    check();
+  }
+  if (isScriptAlreadyIncluded(script)) {
+    return next();
+  }
+  var sc = document.createElement("script");
+  sc.src = script;
+  sc.type = "text/javascript";
+  sc.onload = function() {
+    next();
+  };
+  document.head.appendChild(sc);
+}
+
+function each(a, fn) {
+  if (typeof a.forEach !== "undefined") {
+    a.forEach(fn);
+  } else {
+    for (var i = 0; i < a.length; i++) {
+      if (fn) {
+        fn(a[i]);
+      }
+    }
+  }
+}
+
+var inc = {},
+  incl = [];
+each(document.querySelectorAll("script"), function(t) {
+  inc[t.src.substr(0, t.src.indexOf("?"))] = 1;
+});
+
+
+      
+    var cssModules = [];
+    cssModules.forEach(function(cssModule) {
+      var link = document.createElement('link');
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = cssModule;
+      document.head.appendChild(link);
+    });
+
+
+      function cl() {
+        if(typeof window["Highcharts"] !== "undefined"){
+          Highcharts.setOptions({lang: {"shortMonths":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"weekdays":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"months":["January","February","March","April","May","June","July","August","September","October","November","December"],"numericSymbols":["k","M","G","T","P","E"]} });
+          var options={"colors":["#FF495E","#28277E","#6D5BD1","#F9DCE7","#AEC8FA","#DDD8F5"],"chart":{"style":{"fontFamily":"gordita"},"type":"column","polar":false},"title":{"text":"<div>NASA Technology Readiness Level Ratings</div>","align":"center","style":{"fontSize":"18px","fontWeight":"bold","color":"#3e3e3e"},"useHTML":true},"subtitle":{"text":"","align":"left","style":{"fontSize":"13px"},"useHTML":true},"credits":{"text":"everviz.com","href":"https://everviz.com"},"plotOptions":{"series":{"borderRadius":2,"pointPadding":0.01,"groupPadding":0.05,"borderWidth":0,"shadow":false,"marker":{"enabled":false},"lineWidth":3,"dataLabels":{"enabled":true},"states":{"select":{"color":"#EFFFEF","borderColor":"black","dashStyle":"solid"}},"label":{"enabled":false}}},"legend":{"align":"left","verticalAlign":"top","itemMarginBottom":10,"x":0,"symbolRadius":2,"itemStyle":{"fontWeight":"initial"}},"everviz":{"text":{"dynamicFonts":true}},"yAxis":{"title":{"text":"TRL Levels","style":{"fontWeight":"bold"}},"min":1,"max":9,"type":"category"},"series":[{"turboThreshold":0,"type":"column"}],"loading":{"labelStyle":{"fontStyle":"bold"}},"lang":{"shortMonths":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"weekdays":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"months":["January","February","March","April","May","June","July","August","September","October","November","December"],"numericSymbols":["k","M","G","T","P","E"]},"exporting":{"useMultiLevelHeaders":false},"data":{"csv":"\"Reviewers\";\"TRL Level\"\n\"Joshua Dublin\";5\n\"Kyle Mercado\";7\n\"Q Thompson\";5\n\"Paulo Muniz\";3\n\"Aerron Ward\";7\n\"Peter Chukwu\";3\n\"Deborah Olivares\";6\n\"Shafqat Mashrakey\";8\n\"AVERAGE SCORE\";5.5","seriesMapping":[{"x":0,"y":1,"reviewers":0,"trl_level":1}],"assignDataFields":[{"labels":"A","values":"B"}]},"xAxis":{"title":{"text":"Reviewers","style":{"fontWeight":"bold"}}},"stockTools":{"gui":{"buttons":["simpleShapes","lines"],"enabled":false}},"navigationBindings":{},"navigation":{"events":{"showPopup":"function(t){var n=t.annotation,r=(this.chart.annotations||[]).findIndex((function(e){return e===n}));vq.dispatch(ol({type:n.labels&&n.labels.length>0?\"label\":\"shape\",index:r,annotation:n})),this.chart.indicatorsPopupContainer||(this.chart.indicatorsPopupContainer=document.getElementsByClassName(\"highcharts-popup-indicators\")[0]),\"indicators\"===t.formType?this.chart.indicatorsPopupContainer.style.display=\"block\":\"annotation-toolbar\"===t.formType&&(this.chart.activeButton||(this.chart.currentAnnotation=t.annotation)),this.popup&&(e=this.popup)}","closePopup":"function(){this.chart.currentAnnotation=null}","selectButton":"function(e){var t=e.button.className+\" highcharts-active\";e.button.classList.contains(\"highcharts-active\")||(e.button.className=t,this.chart.activeButton=e.button)}","deselectButton":"function(e){e.button&&e.button.classList.remove(\"highcharts-active\"),this.chart.activeButton=null}"},"bindingsClassName":"tools-container"}};
+          /*
+// Sample of extending options:
+Highcharts.merge(true, options, {
+    chart: {
+        backgroundColor: "#bada55"
+    },
+    plotOptions: {
+        series: {
+            cursor: "pointer",
+            events: {
+                click: function(event) {
+                    alert(this.name + " clicked\n" +
+                          "Alt: " + event.altKey + "\n" +
+                          "Control: " + event.ctrlKey + "\n" +
+                          "Shift: " + event.shiftKey + "\n");
+                }
+            }
+        }
+    }
+});
+*/
+          new Highcharts.Chart("everviz-b0cc9581-e5e5-48f9-ab33-c439df8eb086", options);
+        }
+      }
+    })();
+  </script>

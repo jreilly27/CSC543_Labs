@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Style-Type" content="text/css">
+    <meta name="author" content="Jadyn Reilly">
+    <title>Project 1 Responses A8</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+    <style>
+
+      body {
+        background-color: rgb (255,255,255);
+
+      }
+
+      h1{
+        font-size: 30px;
+      }
+
+      .title {
+        color: rgb(238, 101, 186);
+        text-align: center;
+        margin-top: 20px;
+        width: 100%;
+      
+      }
+
+      .time {
+        color: rgb(50, 51, 100);
+      }
+
+      .options-container {
+        margin-top: 20px;
+        text-align: center;
+    
+      }
+
+      .option-button {
+        display: inline-block;
+        padding: 10px 35px;
+        margin: 25px;
+        margin-top: 10px;
+        text-decoration: none;
+        font-size: 20px;
+        background-color: rgb(50, 51, 100);
+        color: ghostwhite;
+        border-radius: 7px;
+        border: 1px solid transparent;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); 
+      
+      }
+
+      .option-button:hover {
+        background-color: rgb(243, 243, 243);
+        color: rgb(252, 94, 199);
+        
+      }
+      
+
+      footer {
+        background-color: rgb(50, 51, 100);
+        color: ghostwhite;
+        padding: 20px;
+        text-align: right; 
+      }
+
+      footer p {
+        margin: 0;
+      }
+
+      .csv-container {
+        text-align: center;
+        height: auto;
+        font-size: small;
+
+      }
+
+      .csv-table {
+        color: rgb(50, 51, 100);
+        border-collapse: collapse;
+        width: 99%; 
+        text-align: center;
+        margin: 0 auto;
+      }
+
+      .csv-table th, .csv-table td {
+        border: 1px solid rgb(50, 51, 100);
+        padding: 8px;
+        text-align: center;
+      }
+
+      .csv-table tr:hover {
+        background-color: rgb(245, 152, 210); 
+      }
+
+      #csv-table td:nth-child(3),
+      #csv-table th:nth-child(3) {
+        width: 115px;
+
+      }
+
+    </style>
+</head>
+<body>
+  <div class="title">
+    <h1>Feedback and Responses For My Project</h1>
+    <p class="time" id="datetime"></p>
+  </div>
+
+  <hr>
+
+  </div>
+  <div class="options-container">
+    <a href="index.html" class="option-button">Go Back To Homepage</a> 
+  </div>
+
+  <div class="csv-container">
+    <table class="csv-table" id="csv-table"></table>
+  </div>
+
+  <script>
+    var now = new Date();
+    var monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+    var month = monthNames[now.getMonth()];
+    var day = now.getDate();
+    var year = now.getFullYear();
+    var time = now.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+    var dateString = month + " " + day + ", " + year + " at " + time;
+    document.getElementById("datetime").innerHTML = dateString;
+  </script>
+
+<script>
+  fetch('data/assignment8.csv')
+      .then(response => response.text())
+      .then(csv => {
+          const rows = csv.split('\n');
+          let html = '';
+          let isFirstRow = true;
+          rows.forEach(row => {
+              const columns = row.split(',');
+              html += '<tr>';
+              columns.forEach(column => {
+                  if (isFirstRow) {
+                      html += '<th style="background-color: rgb(73, 161, 118);" color: rgb(50,51,100);">' + column + '</th>'; // Apply styles to table headers
+                  } else {
+                      html += '<td>' + column + '</td>';
+                  }
+              });
+              html += '</tr>';
+              isFirstRow = false;
+          });
+          document.getElementById('csv-table').innerHTML = html;
+      })
+      .catch(error => console.error('Error fetching CSV:', error));
+</script>
+
+<br>
+<footer>
+  <p>Jadyn Reilly</p>
+</footer>
+
+
+</body>
+</html>

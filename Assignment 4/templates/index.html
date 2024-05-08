@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Jadyn Reilly">
+    <title>Assignment 4</title>
+    <style>
+
+  body{
+    background-color: rgb(223, 223, 223);
+  }
+
+
+  * {
+    box-sizing: border-box;
+  }
+
+  /* Create two equal columns that floats next to each other */
+  .column {
+    float: left;
+    width: 50%;
+    padding: 10px;
+    height: 300px; /* Should be removed. Only for demonstration */
+  }
+
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  .right-side-image {
+    float: right;
+    width: 200px;
+    border: 0px solid #004480;
+    padding: 10px;
+  }
+
+
+  a.email:link {color:rgb(95, 164, 110);}
+  a.email:hover {color:rgb(238, 238, 238); background:rgb(71, 86, 157);}
+
+  .title-image img{
+    text-align: center;
+    width: 45%; 
+    height: auto; 
+    display: block;
+    margin: 0 auto;
+    border-radius: 7px;
+  
+  }
+
+
+  .options-container {
+    margin-top: 20px;
+    
+  }
+  .option-button {
+    display: inline-block;
+    padding: 10px 35px;
+    margin: 10px;
+    text-decoration: none !important;
+    font-size: 20px;
+    background-color: rgb(71, 86, 157);
+    color: rgb(238, 238, 238);
+    border-radius: 7px;
+
+  }
+  .option-button:hover {
+    background-color: rgb(95, 164, 110);
+  }
+
+  .titlepage {
+    text-align: center;
+  }
+
+  .title {
+    color: rgb(95, 164, 110);
+  }
+
+
+  hr {
+    border-color: rgb(71, 86, 157);
+    border-style: solid;
+
+        }
+
+  .references {
+    text-align: left;
+  }
+
+  .converter {
+    border: 3px solid rgb(71, 86, 157);
+    padding: 20px;
+    border-radius: 7px;
+}
+
+    
+</style>
+</head>
+
+
+                                        <!--TITLE PAGE-->
+
+<body>
+
+<div class="titlepage">
+  <h1 class="title"><span style="color: rgb(39, 39, 39);">☘</span> Click Each Option to View Different Temperature Converters <span style="color: rgb(39, 39, 39);">☘</h1>
+  <h3 style="color: rgb(39, 39, 39);">Jadyn Reilly</h3>
+ 
+
+
+
+                                                          <!--Options-->
+
+<div class="converter">
+<div class="options-container">
+  <h4>It is currently {{ current_time }}</h4>
+           <a href="{{ url_for('index_option1') }}" class="option-button">Option 1</a>
+           <a href="{{ url_for('index_option2') }}" class="option-button">Option 2</a>
+</div>
+
+<br><br>
+
+<div class="title-image">
+  <img src="https://gisgeography.com/wp-content/uploads/2016/03/gis-programming-in-python.png" alt="coding">
+</div>
+<br><br>                                              
+
+</div>
+<br>
+
+                                                        <!--R3 Questions-->
+
+
+<div id="r3">
+  <h1 class="title"><span style="color: rgb(39, 39, 39);">☘</span> Requirment 3 Questions <span style="color: rgb(39, 39, 39);">☘</h1>
+  <hr>
+</div>
+
+<div class="backup_plan">
+<p>My data backup startegy for CSC543 includes a combination of local storage on my desktop and Cloud storage solutions, mainly Google Drive. For this class,
+  I have a dedicated folder named "CSC543" where I store all assignment-related materials, including HTML, CSS, and Javascript files. This approach allows
+  me to maintain my coursework in an easily accessible folder as my primary storage location while making backup copies to a cloud platform, ensuring there is a way to restore them
+  if they were to ever corrupt or get deleted. I particularly like Google Drive because I am familiar with it and have used it for all of my classes since High School. Google Drive allows 
+  me to share my files, store my files, and synchronize them across all of my devices as long as I have an internet connection. I have never thought to store my files on a hard drive but after
+  reading <a href ="https://www.cisa.gov/sites/default/files/publications/data_backup_options.pdf">Data Backup Options</a>, I may want to look into implementing that into 
+  my strategy for backing up my data.</p>
+
+  <p>This assignment took me quite sometime because I have little to no experience with either python or PHP. After lots of hours of research, I decided to go with Python for this assignment because everywhere I read
+    said that it is a great language to know and easy to learn. I started off on VS Code by first downloading the Python extension and then using the terminal to install the latest versions of
+    python and flask as well as pip, which allowed for the installations. I had to download pip first in the terminal with this command I found online at <a href="https://pip.pypa.io/en/stable/installation/">this website</a>, "curl https://bootstrap.pypa.io/pip/2.7/get-pip.py -o get-pip.py". Once that was downloaded,
+    it made it possible to get flask and python to run. For example, in order to get flask to download I ran the command "pip3 install flask". To ensure I downloaded the latest version of Python correctly 
+    I ran this command in my terminal "python3 --version". I had already gotten started on my HTML pages so I then went ahead and made my very first .py file. This is when it became quite intimidating. I found many resources online and learned many things.
+    As I went along, I realized quickly how important it was to correctly organize my project files. For Flask to render dynamic web pages correctly, it was necessary to create a static folder for static resources, such as CSS files, as well as a templates subdirectory for HTML files. 
+    This part is crucial. I also learned I had to reference URL's a specific way I had not seen before in my HTML files to ensure they connected back to my CSS files, <a href="https://www.codeconda.com/post/how-to-use-url_for-in-flask">click here to learn more</a>. There were many resources I used which you can find down below as to figuring out the actual code. I would say the longest part for me 
+    was getting pip, flask, and python installed as well as needing to update VS code to do so. Overall, I found this to be a rewarding experience and am happy with how it all turned out.</p>
+
+
+</div>       
+
+
+                                                        <!--References-->
+<div id="references">
+  <br>
+  <h1 class="title"><span style="color: rgb(39, 39, 39);">☘</span> References <span style="color: rgb(39, 39, 39);">☘</h1>
+  <hr>
+</div>
+
+<div class="references">
+
+<li>Scharlau. (n.d.). GitHub - scharlau/temperature_conversion_p: A python based web application for temperature conversion. GitHub. <a href="https://github.com/scharlau/temperature_conversion_p">https://github.com/scharlau/temperature_conversion_p</a></li>
+<li>Python in Visual Studio Code. (2021, November 3). <a href ="https://code.visualstudio.com/docs/languages/python">https://code.visualstudio.com/docs/languages/python</a></li>
+<li>Python Dates. (n.d.). <a href="https://www.w3schools.com/python/python_datetime.asp">https://www.w3schools.com/python/python_datetime.asp</a></li>
+<li>Python Tutorial. (n.d.). <a href="https://www.w3schools.com/python/default.asp">https://www.w3schools.com/python/default.asp</a></li>
+<li>Installation - pip documentation v24.0. (n.d.). <a href="https://pip.pypa.io/en/stable/installation/">https://pip.pypa.io/en/stable/installation/</a></li>
+<li>Static Files — Flask Documentation (3.0.x). (n.d.). <a href= "https://flask.palletsprojects.com/en/3.0.x/tutorial/static/">https://flask.palletsprojects.com/en/3.0.x/tutorial/static/</a></li>
+<li>Barlev, A. (2023, February 28). How to use url_for in Flask. CodeConda. <a href="https://www.codeconda.com/post/how-to-use-url_for-in-flask">https://www.codeconda.com/post/how-to-use-url_for-in-flask</a></li>
+<li>HTML color names. (n.d.). <a href="https://www.w3schools.com/colors/colors_names.asp">https://www.w3schools.com/colors/colors_names.asp</a></li>
+<li>Cybersecurity and Infrastructure Security Agency. (n.d.). Data backup options. <a href="https://www.cisa.gov/sites/default/files/publications/data_backup_options.pdf">https://www.cisa.gov/sites/default/files/publications/data_backup_options.pdf</a></li>
+</div>
+
+  <a class="email" href="mailto:reillyj18@southernct.edu">
+  <ul style=
+    "text-align: right;
+    font-family: Verdana,sans-serif;">
+    reillyj18@southernct.edu</a><br>
+    <img class="right-side-image" src="https://myiee.org/storage/krMKrGXXFAxdiTJKE2wl8Dw1JSGqu1vbeJVtsgb9.png"></ul>
+
+
+  </div>
+
+  </body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Jadyn Reilly">
+    <title>Assignment 4</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='option2.css') }}"> <!-- static folder -->
+    
+</head>
+
+<body>
+    <div class="page" id="main-page">
+        <h1 style="color: black; text-align: center;">Temperature Converter</h1>
+        <hr>
+        <br>
+        Input any number below to convert your Fahrenheit temperature to Celsius!
+
+      <div class="temp" id="temp-converter">
+    <form action="/option2" method="post">
+        <label for="fahrenheit">Enter degrees in °Fahrenheit:</label>
+        <input type="number" id="fahrenheit" name="fahrenheit" required placeholder="Input Number in °F">
+        <button type="submit">Convert</button>
+    </form>
+
+    {% if fahrenheit and celsius %}
+    <p style="color: rgb(95, 164, 110);">{{ fahrenheit|int }} degrees in °Fahrenheit is equal to {{ celsius|int }} degrees in °Celsius.</p>
+    {% endif %}
+    
+    </div>
+    <br><br><br><br>
+    <a href="#" class="button" onclick="goBack()">Go Back To Options</a>
+
+<script>
+function goBack() {
+  window.location.href = '/';
+}
+</script>
+
+
+
+</body>
+</html>
+

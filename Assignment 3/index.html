@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="author" content="Jadyn Reilly " />
+  <title>Assignment 3</title>
+
+  <link rel="stylesheet" type="text/css" media="screen, projection, print" href="scripts/slidy.css" /> <!-- http://www.w3.org/Talks/Tools/Slidy2/styles/slidy.css -->
+  <script src="scripts/slidy.js" charset="utf-8" type="text/javascript"></script> <!-- http://www.w3.org/Talks/Tools/Slidy2/scripts/slidy.js-->
+  <script src="scripts/jquery-3.3.1.min.js" charset="utf-8" type="text/javascript"></script> <!-- https://code.jquery.com/jquery-3.3.1.min.js -->
+  <script type="text/javascript" src="scripts/qrcode.js"></script>
+
+
+
+</head>
+
+<style>
+
+  /* two-colomn layout */
+  * {
+    box-sizing: border-box;
+  }
+
+  /* Create two equal columns that floats next to each other */
+  .column {
+    float: left;
+    width: 50%;
+    padding: 10px;
+    height: 300px; /* Should be removed. Only for demonstration */
+  }
+
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  .right-side-image {
+    float: right;
+    width: 300px;
+    border: 0px solid #004480;
+    padding: 10px;
+  }
+
+  /* global properties to apply to all images */
+  .img {
+    float: left;
+  }
+
+  .author {
+  color:rgb(255, 85, 170);
+}
+
+  /* qrcode generator image size */
+  #qrcode {
+    width:160px;
+    height:160px;
+    margin-top:15px;
+  }
+
+  /* email link */
+  a.email:link {color:#1d9a83;}
+  a.email:hover {color:rgb(255, 59, 157); background:#ffddf9;}
+
+  .title-image img{
+    text-align: center;
+    width: 30%; 
+    height: auto; 
+    display: block;
+    margin: 0 auto; 
+  
+  }
+
+  img {
+    width: 75%; 
+    height: auto; 
+    display: block;
+    margin: 0 auto; 
+  }
+
+  .options-container {
+    margin-top: 20px;
+    
+  }
+  .option-button {
+    display: inline-block;
+    padding: 10px 35px;
+    margin: 10px;
+    text-decoration: none !important;
+    font-size: 20px;
+    background-color: rgb(199, 219, 246);
+    color: rgb(200, 98, 244) !important;
+    border-radius: 7px;
+
+  }
+  .option-button:hover {
+    background-color: rgb(255, 163, 204);
+  }
+
+  #datetime {
+        color: rgb(50, 79, 168);
+    }
+    
+</style>
+
+
+                                        <!--TITLE PAGE-->
+
+<body>
+
+<div class="slide titlepage">
+  <h1 class="title">CSC 543 Assignment 3<br><font color = "#000080"></font></h1>
+  <p class="author">Jadyn Reilly</p>
+  <p class="date">Computer Science Department <br> <font color="cornflowerblue">Southern Connecticut State University</font></p>
+  <button id="view-fullscreen">Click For Full Screen View</button>
+    <br><br>
+    <div class="title-image">
+            <img src="https://pentagram-production.imgix.net/1cbbfce1-48d5-4257-95e5-745c10e6492e/eo_codecademy_04.jpg?rect=%2C%2C%2C&w=640&h=400&fit=crop&fm=jpg&q=70&auto=format" alt="coding">
+    </div>
+
+
+                                                          <!--JAVASCRIPT-->
+
+  <script type="text/javascript">
+    (function () {
+        var viewFullScreen = document.getElementById("view-fullscreen");
+        if (viewFullScreen) {
+            viewFullScreen.addEventListener("click", function () {
+                var docElm = document.documentElement;
+                if (docElm.requestFullscreen) {
+                    docElm.requestFullscreen();
+                }
+                else if (docElm.msRequestFullscreen) {
+                    docElm = document.body; 
+                    docElm.msRequestFullscreen();
+                }
+                else if (docElm.mozRequestFullScreen) {
+                    docElm.mozRequestFullScreen();
+                }
+                else if (docElm.webkitRequestFullScreen) {
+                    docElm.webkitRequestFullScreen();
+                }
+            }, false);
+        }
+
+        var cancelFullScreen = document.getElementById("cancel-fullscreen");
+        if (cancelFullScreen) {
+            cancelFullScreen.addEventListener("click", function () {
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                }
+                else if (document.msExitFullscreen) {
+                    document.msExitFullscreen();
+                }
+                else if (document.mozCancelFullScreen) {
+                    document.mozCancelFullScreen();
+                }
+                else if (document.webkitCancelFullScreen) {
+                    document.webkitCancelFullScreen();
+                }
+            }, false);
+        }
+
+        var fullscreenState = document.getElementById("fullscreen-state");
+        if (fullscreenState) {
+            document.addEventListener("fullscreenchange", function () {
+                fullscreenState.innerHTML = (document.fullscreenElement)? "" : "not ";
+            }, false);
+
+            document.addEventListener("msfullscreenchange", function () {
+                fullscreenState.innerHTML = (document.msFullscreenElement)? "" : "not ";
+            }, false);
+
+            document.addEventListener("mozfullscreenchange", function () {
+                fullscreenState.innerHTML = (document.mozFullScreen)? "" : "not ";
+            }, false);
+
+            document.addEventListener("webkitfullscreenchange", function () {
+                fullscreenState.innerHTML = (document.webkitIsFullScreen)? "" : "not ";
+            }, false);
+        }
+
+    })();
+    </script>
+    </div>
+
+                                                          <!--Options-->
+
+    <div class="section slide level1" id="options" style="text-align:center">
+      <br>
+      <h1 style="color: rgb(255, 85, 170); text-align: center;">☆ Click Each Option to View Different Temperature Converters ☆</h1>
+        <hr>
+              <p id="datetime"></p>
+
+          <div class="options-container">
+            <a href="3option1.html" class="option-button">Sunny Option</a>
+            <a href="3option2.html" class="option-button">Stormy Option</a>
+
+            <br>
+            <script>
+                var now = new Date();
+                var datetime = now.toLocaleString();
+
+                document.getElementById("datetime").innerHTML = datetime;
+
+              </script>
+            
+
+            <br>
+
+             <img src="https://wallpapercave.com/wp/wp4725609.jpg" alt="sunset image">
+
+          </div>
+    </div>
+    
+
+
+<!--QUESTIONS-->
+
+<div class="section slide level1" id="3" style="text-align:center">
+  <br>
+  <h1 style="color: cornflowerblue; text-align: center;">☆ Requirement 3 Questions ☆</h1>
+    <hr>
+
+  <h4 style="color: gray">What do you know about the client?</h4>
+
+  <p>The client is the device that an end user uses to obtain services or resources from the server, such as a web browser. 
+  This can include a smartphone, tablet, laptop, or desktop computer.It is compatible with web browsers including Chrome, Firefox, Safari, and Microsoft Edge. 
+  To display web pages and interact with users, the client must interpret the server-sent HTML, CSS, and JavaScript code. </p> 
+
+  <h4 style="color: gray">Where can we learn more about the client?</h4>
+  <p>We can learn more about the client provided by our web browsers like google chrome which provides documentation into how the client works with web applications. </p>
+
+  <h4 style="color: gray">What do you know about the server?</h4>
+  <p>The server is the backend component of any web application. While the client connects with the server to access resources or services, the 
+    server is responsible for providing and handling client requests, accessing databases, and data processing. </p>
+
+  <h4 style="color: gray">Where can we learn more about the server?</h4>
+  <p>We can learn more about the server by exploring resources related to backend development. There are many online tutorials, documentation from web frameworks including programming
+    languages like Javascript and Python, which can provide information related to server-side structure and implementation. </p>
+
+  <h4 style="color: gray">The interactions among client and server in my web applications and the languages used to define them.</h4>
+  <p>HTTP requests and responses played a major role in enabling client-server interactions in my web application. Through a web browser, the server is responsible for
+    handling HTTP requests from the client. The client asks the server to retrieve resources like HTML, CSS, and JavaScript files. These resources define my web pages
+    structered content, style, and interactive elements/functionality. After recieving the requests, the server was able to process them and send HTTP responses back to the client with the 
+  resources needed to display my web page accurately. </p>
+
+</div>
+
+<div class="section slide level1" id="4" style="text-align:center">
+  <br>
+  <h1 style="color: cornflowerblue; text-align: center;">☆ Requirement 4 Questions ☆</h1>
+    <hr>
+
+  <h4 style="color: gray">The role of HTML in my temperature converter:</h4>
+
+  <p>The foundation of a web page is its HTML, which establishes its structure and content. HTML is utilized in my webpage to develop the user interface's structure 
+    and the layout in my temperature converter implementation. It outlines the components needed for the temperature conversion, including the input number fields, buttons, labels, and containers.</p>
+
+  <h4 style="color: gray">The role of CSS in my temperature converter:</h4>
+  <p>The HTML elements of my webpage are styled with CSS, which enhances the website's visual design and layout. The implementation of my temperature converter uses CSS to control the elements defined by HTML.
+    CSS helped me in adjusting the temperature conversion's colors, fonts, sizes, margins, and alignments to make it more aesthetically pleasing and easier to use.</p>
+
+
+  <h4 style="color: gray">The role of JavaScript in my temperature converter:</h4>
+  <p>JavaScript is a scripting language that adds interactive elements and functionality to websites. Javascript was essenital in calculating the conversion from Fahrenheit to Celsius and would not have been possible without it. 
+     Additionally, JavaScript obtains the information from the user input field, which in this case was the temperature in Fahrenheit. It then does the math required to convert the temperature
+    to Celsius, which then updates the HTML element displaying the result instantly. Lastly, Javascript enabled me to display the current date and time on my webpage by updating the corresponding HTML element.</p>
+
+</div>
+  
+
+
+
+
+
+
+
+                                                        <!--RESOURCES PAGE-->         
+
+<div class="section slide level1" id="references">
+  <br>
+  <h1 style="color: cornflowerblue; text-align: center;">☆ References ☆</h1>
+  <hr>
+
+
+    <li>History: back() method - Web APIs | MDN. (2024, January 12). MDN Web Docs. <a href="https://developer.mozilla.org/en-US/docs/Web/API/History/back">https://developer.mozilla.org/en-US/docs/Web/API/History/back</a></li>
+    <li>[HTML] - How to inject current day and time into HTML. (n.d.). | SheCodes.<a href="https://www.shecodes.io/athena/72750-how-to-inject-current-day-and-time-into-html">https://www.shecodes.io/athena/72750-how-to-inject-current-day-and-time-into-html</a></li>
+    <li>CSS/Properties/color/keywords - W3C Wiki. (n.d.). <a href="https://www.w3.org/wiki/CSS/Properties/color/keywords">https://www.w3.org/wiki/CSS/Properties/color/keywords</a></li>
+    <li>HTML Styles CSS. (n.d.). <a href="https://www.w3schools.com/html/html_css.asp">https://www.w3schools.com/html/html_css.asp</a>.</li>
+    <li>Team, A. (2023, August 20). How to link a button to another page in HTML. Altcademy Blog. <a href="https://www.altcademy.com/blog/how-to-link-a-button-to-another-page-in-html/#:~:text=In%20HTML%2C%20to%20make%20a,to%20specify%20the%20destination%20URL.">https://www.altcademy.com/blog/how-to-link-a-button-to-another-page-in-html/#:~:text=In%20HTML%2C%20to%20make%20a,to%20specify%20the%20destination%20URL.</a></li>    
+    <li>Inc, C. (2023, September 1). Searching for information about client computers. <a href="https://techdocs.broadcom.com/us/en/symantec-security-software/endpoint-security-and-management/endpoint-protection/all/managing-groups-clients-and-administrators/managing-client-computers-v55115300-d19e131/searching-for-information-about-client-computers-v11093908-d19e3083.html">https://techdocs.broadcom.com/us/en/symantec-security-software/endpoint-security-and-management/endpoint-protection/all/managing-groups-clients-and-administrators/managing-client-computers-v55115300-d19e131/searching-for-information-about-client-computers-v11093908-d19e3083.html</a></li>
+    <li>Usman. (2023, January 26). What is the difference between Client and Server in Computer science? Noon Academy.<a href="https://www.learnatnoon.com/s/en-pk2/what-is-the-difference-between-client-and-server-in-computer-science/#:~:text=A%20client%20is%20a%20computer,provides%20those%20resources%20or%20services."> https://www.learnatnoon.com/s/en-pk2/what-is-the-difference-between-client-and-server-in-computer-science/#:~:text=A%20client%20is%20a%20computer,provides%20those%20resources%20or%20services.</a></li>
+    <li>Yuson, A. (n.d.). Everything you need to know about servers. <a href="https://blog.etech7.com/everything-you-need-to-know-about-servers">https://blog.etech7.com/everything-you-need-to-know-about-servers</a></li>
+    <br><br><br>
+  <a class="email" href="mailto:reillyj18@southernct.edu">
+  <ul style=
+    "text-align: right;
+    font-family: Verdana,sans-serif;">
+    reillyj18@southernct.edu</a><br>
+    <img class="right-side-image" src="https://myiee.org/storage/krMKrGXXFAxdiTJKE2wl8Dw1JSGqu1vbeJVtsgb9.png"></ul>
+
+</div>
+
+
+  </body>
+</html>
